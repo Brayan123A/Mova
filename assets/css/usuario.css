@@ -1,0 +1,1238 @@
+
+/* =========================================================
+   MOVA — INICIO
+========================================================= */
+
+:root {
+    --primary: #7257ff;
+    --primary-soft: #f0edff;
+
+    --dark: #17171e;
+    --text: #34343d;
+    --muted: #8a8a96;
+
+    --bg: #f6f6f9;
+    --white: #ffffff;
+
+    --border: #e8e8ee;
+
+    --green: #35a878;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: var(--bg);
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.topbar {
+    height: 70px;
+
+    background: var(--white);
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 32px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+.create-button {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.mova-logo {
+    color: var(--dark);
+
+    text-decoration: none;
+
+    font-size: 27px;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+}
+
+
+.mova-logo span {
+    color: var(--primary);
+}
+
+
+.topbar-left {
+    width: 240px;
+}
+
+
+.topbar-search {
+    width: 360px;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 14px;
+
+    border-radius: 12px;
+
+    background: var(--bg);
+
+    color: var(--muted);
+}
+
+
+.topbar-search span {
+    font-size: 20px;
+}
+
+
+.topbar-search input {
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    width: 100%;
+
+    font-size: 12px;
+
+    color: var(--text);
+}
+
+
+.topbar-actions {
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.top-icon {
+    width: 39px;
+
+    height: 39px;
+
+    border: 1px solid var(--border);
+
+    background: var(--white);
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    color: var(--text);
+
+    transition: .2s;
+}
+
+
+.top-icon:hover {
+    color: var(--primary);
+
+    border-color: #d8d1ff;
+}
+
+
+.mini-profile span {
+    width: 39px;
+
+    height: 39px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.app-layout {
+    max-width: 1450px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        240px
+        minmax(450px, 680px)
+        280px;
+
+    gap: 30px;
+
+    padding: 30px;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    min-height: calc(100vh - 130px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: sticky;
+
+    top: 100px;
+}
+
+
+.sidebar-user {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.avatar-large {
+    width: 46px;
+
+    height: 46px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #917dff
+        );
+
+    color: white;
+
+    font-weight: 800;
+}
+
+
+.sidebar-user strong {
+    display: block;
+
+    font-size: 13px;
+
+    color: var(--dark);
+}
+
+
+.sidebar-user span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    margin-top: 3px;
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.main-nav {
+    padding-top: 20px;
+}
+
+
+.nav-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 13px;
+
+    margin-bottom: 4px;
+
+    border-radius: 12px;
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition: .2s;
+}
+
+
+.nav-item:hover {
+    background: var(--white);
+
+    color: var(--text);
+}
+
+
+.nav-item.active {
+    background: var(--primary-soft);
+
+    color: var(--primary);
+}
+
+
+.nav-icon {
+    width: 23px;
+
+    text-align: center;
+
+    font-size: 17px;
+}
+
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    padding-top: 20px;
+}
+
+
+.logout {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 13px;
+
+    color: #c56b73;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main-content {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   WELCOME
+========================================================= */
+
+.welcome-section {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+
+.welcome-label {
+    color: var(--primary);
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+
+.welcome-section h1 {
+    color: var(--dark);
+
+    font-size: 29px;
+
+    letter-spacing: -1px;
+
+    margin: 7px 0;
+}
+
+
+.welcome-section h1 span {
+    color: var(--primary);
+}
+
+
+.welcome-section p {
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.create-button {
+    border: none;
+
+    background: var(--dark);
+
+    color: white;
+
+    padding: 12px 15px;
+
+    border-radius: 12px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+.create-button span {
+    font-size: 17px;
+
+    vertical-align: middle;
+
+    margin-right: 4px;
+}
+
+
+/* =========================================================
+   COMPOSER
+========================================================= */
+
+.composer {
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 17px;
+
+    display: flex;
+
+    gap: 13px;
+
+    margin-bottom: 25px;
+}
+
+
+.composer-avatar {
+    width: 39px;
+
+    height: 39px;
+
+    min-width: 39px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.composer-content {
+    flex: 1;
+}
+
+
+.composer-input {
+    width: 100%;
+
+    min-height: 48px;
+
+    text-align: left;
+
+    border: none;
+
+    background: var(--bg);
+
+    color: var(--muted);
+
+    padding: 13px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 11px;
+}
+
+
+.composer-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 12px;
+}
+
+
+.composer-actions button {
+    border: none;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    padding: 7px 9px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+
+.composer-actions button:hover {
+    background: var(--primary-soft);
+
+    color: var(--primary);
+}
+
+
+.composer-actions .publish-button {
+    margin-left: auto;
+
+    background: var(--primary);
+
+    color: white;
+
+    padding: 8px 15px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   FEED HEADER
+========================================================= */
+
+.feed-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 13px;
+}
+
+
+.feed-header div {
+    display: flex;
+
+    gap: 18px;
+}
+
+
+.feed-header strong {
+    color: var(--dark);
+
+    font-size: 13px;
+
+    border-bottom: 2px solid var(--primary);
+
+    padding-bottom: 7px;
+}
+
+
+.feed-header span {
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.feed-header button {
+    border: none;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   POST
+========================================================= */
+
+.post-card {
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    margin-bottom: 16px;
+
+    padding: 18px;
+}
+
+
+.post-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.post-user {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.post-avatar {
+    width: 39px;
+
+    height: 39px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #e8e4ff;
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.post-avatar.second {
+    background: #e4f2ff;
+
+    color: #4288d9;
+}
+
+
+.post-user strong {
+    display: block;
+
+    color: var(--dark);
+
+    font-size: 12px;
+}
+
+
+.post-user span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    margin-top: 3px;
+}
+
+
+.post-more {
+    border: none;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    cursor: pointer;
+}
+
+
+.post-content {
+    margin-top: 15px;
+}
+
+
+.post-content > p {
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 13px;
+}
+
+
+.post-placeholder {
+    height: 240px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eeebff,
+            #f8f7ff
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--primary);
+}
+
+
+.post-placeholder span {
+    font-size: 32px;
+}
+
+
+.post-placeholder p {
+    color: #9189bc;
+
+    font-size: 10px;
+
+    margin-top: 7px;
+}
+
+
+/* =========================================================
+   POST STATS
+========================================================= */
+
+.post-stats {
+    display: flex;
+
+    gap: 15px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   POST ACTIONS
+========================================================= */
+
+.post-actions {
+    display: flex;
+
+    gap: 5px;
+
+    padding-top: 11px;
+}
+
+
+.post-actions button {
+    flex: 1;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    padding: 9px;
+
+    border-radius: 9px;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+
+.post-actions button:hover {
+    background: var(--primary-soft);
+
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   RIGHT PANEL
+========================================================= */
+
+.right-panel {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    position: sticky;
+
+    top: 100px;
+
+    align-self: start;
+}
+
+
+.panel-card {
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 17px;
+}
+
+
+.panel-title {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+
+.panel-title strong {
+    color: var(--dark);
+
+    font-size: 12px;
+}
+
+
+.panel-title a {
+    color: var(--primary);
+
+    text-decoration: none;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   DISCOVER
+========================================================= */
+
+.discover-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 15px;
+}
+
+
+.discover-item:last-child {
+    margin-bottom: 0;
+}
+
+
+.discover-avatar {
+    width: 35px;
+
+    height: 35px;
+
+    min-width: 35px;
+
+    border-radius: 11px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+.discover-avatar.purple {
+    background: #eeeaff;
+
+    color: var(--primary);
+}
+
+
+.discover-avatar.blue {
+    background: #e8f3ff;
+
+    color: #4288d9;
+}
+
+
+.discover-avatar.orange {
+    background: #fff0df;
+
+    color: #d88936;
+}
+
+
+.discover-item div:nth-child(2) {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.discover-item strong {
+    display: block;
+
+    color: var(--dark);
+
+    font-size: 10px;
+}
+
+
+.discover-item span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    margin-top: 3px;
+}
+
+
+.discover-item button {
+    width: 27px;
+
+    height: 27px;
+
+    border: 1px solid #dcd7ff;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   TRENDS
+========================================================= */
+
+.trend {
+    padding: 11px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.trend:last-child {
+    border-bottom: none;
+}
+
+
+.trend span {
+    display: block;
+
+    color: var(--primary);
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+.trend strong {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.app-footer {
+    color: #aaaab4;
+
+    font-size: 9px;
+
+    line-height: 1.7;
+
+    padding: 5px 5px;
+}
+
+
+.app-footer span {
+    display: block;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+
+    .app-layout {
+        grid-template-columns:
+            210px
+            minmax(400px, 1fr);
+
+        max-width: 1000px;
+    }
+
+
+    .right-panel {
+        display: none;
+    }
+
+
+    .topbar-left {
+        width: 210px;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .topbar {
+        padding: 0 18px;
+    }
+
+
+    .topbar-left {
+        width: auto;
+    }
+
+
+    .topbar-search {
+        display: none;
+    }
+
+
+    .app-layout {
+        display: block;
+
+        padding: 20px 15px;
+    }
+
+
+    .sidebar {
+        min-height: auto;
+
+        position: static;
+
+        margin-bottom: 20px;
+    }
+
+
+    .sidebar-user {
+        display: none;
+    }
+
+
+    .main-nav {
+        display: flex;
+
+        overflow-x: auto;
+
+        padding: 0;
+
+        gap: 5px;
+    }
+
+
+    .nav-item {
+        white-space: nowrap;
+
+        margin: 0;
+    }
+
+
+    .sidebar-bottom {
+        display: none;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .topbar {
+        height: 62px;
+    }
+
+
+    .mova-logo {
+        font-size: 24px;
+    }
+
+
+    .top-icon {
+        width: 34px;
+
+        height: 34px;
+    }
+
+
+    .mini-profile span {
+        width: 34px;
+
+        height: 34px;
+    }
+
+
+    .welcome-section {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .welcome-section h1 {
+        font-size: 25px;
+    }
+
+
+    .create-button {
+        width: 100%;
+    }
+
+
+    .composer-actions {
+        flex-wrap: wrap;
+    }
+
+
+    .composer-actions .publish-button {
+        width: 100%;
+
+        margin-left: 0;
+    }
+
+
+    .post-placeholder {
+        height: 190px;
+    }
+
+
+    .post-actions button {
+        font-size: 9px;
+
+        padding: 8px 4px;
+    }
+}
+

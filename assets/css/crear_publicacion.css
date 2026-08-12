@@ -1,0 +1,679 @@
+
+/* =========================================================
+   MOVA — CREAR PUBLICACIÓN
+========================================================= */
+
+.create-page {
+    min-height: calc(100vh - 70px);
+
+    padding: 40px 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+}
+
+
+.create-card {
+    width: 100%;
+
+    max-width: 720px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(0,0,0,.04);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.create-header {
+    margin-bottom: 25px;
+}
+
+
+.back-link {
+    display: inline-block;
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    margin-bottom: 20px;
+}
+
+
+.create-label {
+    color: var(--primary);
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+
+.create-header h1 {
+    color: var(--dark);
+
+    font-size: 27px;
+
+    letter-spacing: -1px;
+
+    margin: 7px 0;
+}
+
+
+.create-header p {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   CREADOR
+========================================================= */
+
+.creator {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 15px;
+
+    background: var(--bg);
+
+    border-radius: 14px;
+
+    margin-bottom: 20px;
+}
+
+
+.creator-avatar {
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 13px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7257ff,
+            #9b87ff
+        );
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 900;
+}
+
+
+.creator strong {
+    display: block;
+
+    color: var(--dark);
+
+    font-size: 11px;
+}
+
+
+.creator span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    margin-top: 3px;
+}
+
+
+/* =========================================================
+   TIPOS
+========================================================= */
+
+.publication-types {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 7px;
+
+    margin-bottom: 22px;
+}
+
+
+.type-button {
+    border: 1px solid var(--border);
+
+    background: var(--white);
+
+    color: var(--muted);
+
+    min-height: 62px;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    transition: .2s;
+}
+
+
+.type-button span {
+    font-size: 19px;
+}
+
+
+.type-button:hover {
+    border-color: #cfc8ff;
+
+    color: var(--primary);
+}
+
+
+.type-button.active {
+    background: var(--primary-soft);
+
+    border-color: var(--primary);
+
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+.publication-section {
+    margin-bottom: 20px;
+}
+
+
+.publication-section.hidden {
+    display: none;
+}
+
+
+.section-title {
+    display: block;
+
+    color: var(--dark);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    margin-bottom: 8px;
+}
+
+
+.publication-section textarea {
+    width: 100%;
+
+    min-height: 150px;
+
+    resize: vertical;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background: var(--bg);
+
+    padding: 15px;
+
+    outline: none;
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+.publication-section textarea:focus,
+.field input:focus,
+.poll-options input:focus {
+    border-color: var(--primary);
+
+    background: var(--white);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(114,87,255,.08);
+}
+
+
+/* =========================================================
+   CONTADOR
+========================================================= */
+
+.character-count {
+    text-align: right;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.image-upload {
+    min-height: 220px;
+
+    border: 2px dashed #dcd8f5;
+
+    background: var(--bg);
+
+    border-radius: 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+.image-upload:hover {
+    border-color: var(--primary);
+
+    background: var(--primary-soft);
+}
+
+
+.upload-icon {
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 16px;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+    margin-bottom: 10px;
+}
+
+
+.image-upload strong {
+    color: var(--dark);
+
+    font-size: 11px;
+}
+
+
+.image-upload small {
+    color: var(--muted);
+
+    font-size: 8px;
+
+    margin-top: 5px;
+}
+
+
+.image-preview {
+    margin-top: 12px;
+}
+
+
+.image-preview img {
+    display: block;
+
+    width: 100%;
+
+    max-height: 400px;
+
+    object-fit: contain;
+
+    border-radius: 14px;
+}
+
+
+/* =========================================================
+   EVENTO
+========================================================= */
+
+.event-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+
+.field label {
+    display: block;
+
+    color: var(--dark);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    margin-bottom: 6px;
+}
+
+
+.field input,
+.poll-options input {
+    width: 100%;
+
+    height: 44px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 11px;
+
+    background: var(--bg);
+
+    padding: 0 12px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 10px;
+}
+
+
+.event-grid + textarea {
+    min-height: 100px;
+}
+
+
+/* =========================================================
+   ENCUESTA
+========================================================= */
+
+.poll-options {
+    display: grid;
+
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+
+/* =========================================================
+   VISIBILIDAD
+========================================================= */
+
+.visibility {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 14px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 13px;
+
+    margin-bottom: 20px;
+}
+
+
+.visibility > div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.visibility-icon {
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 10px;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.visibility strong {
+    display: block;
+
+    color: var(--dark);
+
+    font-size: 10px;
+}
+
+
+.visibility small {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    margin-top: 3px;
+}
+
+
+.visibility select {
+    border: 1px solid var(--border);
+
+    background: var(--white);
+
+    color: var(--text);
+
+    border-radius: 8px;
+
+    padding: 8px;
+
+    font-size: 9px;
+
+    outline: none;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.cancel-button,
+.publish-button {
+    min-height: 42px;
+
+    padding: 0 17px;
+
+    border-radius: 11px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+
+.cancel-button {
+    color: var(--muted);
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+}
+
+
+.publish-button {
+    color: white;
+
+    background: var(--primary);
+
+    border: none;
+
+    box-shadow:
+        0 8px 20px
+        rgba(114,87,255,.20);
+}
+
+
+.publish-button:hover {
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .create-page {
+        padding: 20px 12px;
+    }
+
+
+    .create-card {
+        padding: 20px 16px;
+
+        border-radius: 18px;
+    }
+
+
+    .publication-types {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .event-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .visibility {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .visibility select {
+        width: 100%;
+    }
+
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+
+    .cancel-button,
+    .publish-button {
+        width: 100%;
+    }
+}
+
