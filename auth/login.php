@@ -1,9 +1,9 @@
-
 <?php
 
 session_start();
 
-if (isset($_SESSION["usuario_id"])) {
+if (isset($_SESSION['usuario_id'])) {
+
     header("Location: ../usuario/inicio.php");
     exit;
 }
@@ -22,7 +22,7 @@ if (isset($_SESSION["usuario_id"])) {
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Iniciar sesión | MOVA</title>
+    <title>Iniciar sesión | Conekta</title>
 
     <link
         rel="stylesheet"
@@ -35,40 +35,35 @@ if (isset($_SESSION["usuario_id"])) {
 
 <div class="auth-container">
 
-    <div class="auth-box">
+    <div class="auth-card">
 
-        <div class="logo">
-            <span>M</span>OVA
+        <div class="auth-logo">
+            CONEKTA
         </div>
 
-        <p class="subtitle">
-            Vuelve a tu espacio en MOVA.
+        <p class="auth-subtitle">
+            Conecta. Comparte. Descubre.
         </p>
+
+
+        <?php if (isset($_GET["registro"])): ?>
+
+            <div class="mensaje exito">
+                ¡Cuenta creada correctamente!
+                Ahora puedes iniciar sesión.
+            </div>
+
+        <?php endif; ?>
+
 
         <?php if (isset($_GET["error"])): ?>
 
-            <div class="auth-message error">
+            <div class="mensaje error">
 
                 <?php
-
-                switch ($_GET["error"]) {
-
-                    case "campos":
-                        echo "Completa todos los campos.";
-                        break;
-
-                    case "credenciales":
-                        echo "El correo o la contraseña son incorrectos.";
-                        break;
-
-                    case "bloqueado":
-                        echo "Esta cuenta se encuentra bloqueada.";
-                        break;
-
-                    default:
-                        echo "Ocurrió un error. Inténtalo nuevamente.";
-                }
-
+                echo htmlspecialchars(
+                    $_GET["error"]
+                );
                 ?>
 
             </div>
@@ -76,44 +71,75 @@ if (isset($_SESSION["usuario_id"])) {
         <?php endif; ?>
 
 
-        <?php if (isset($_GET["registro"]) && $_GET["registro"] === "ok"): ?>
-
-            <div class="auth-message success">
-                ¡Cuenta creada correctamente! Ahora puedes iniciar sesión.
-            </div>
-
-        <?php endif; ?>
-
-
         <form
-            action="validar_login.php"
+            action="validar.php"
             method="POST"
         >
 
             <input
-                type="email"
-                name="correo"
-                placeholder="Correo electrónico"
-                autocomplete="email"
-                required
+                type="hidden"
+                name="accion"
+                value="login"
             >
 
-            <input
-                type="password"
-                name="password"
-                placeholder="Contraseña"
-                autocomplete="current-password"
-                required
-            >
 
-            <button type="submit">
-                Entrar a MOVA
+            <div class="campo">
+
+                <label>
+                    Correo electrónico
+                </label>
+
+                <input
+                    type="email"
+                    name="correo"
+                    placeholder="correo@ejemplo.com"
+                    required
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>
+                    Contraseña
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Tu contraseña"
+                    required
+                >
+
+            </div>
+
+
+            <div class="forgot">
+
+                <a href="recuperar.php">
+                    ¿Olvidaste tu contraseña?
+                </a>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn-auth"
+            >
+                Iniciar sesión
             </button>
 
         </form>
 
 
-        <p class="link-text">
+        <div class="separador">
+            <span>o</span>
+        </div>
+
+
+        <div class="auth-link">
 
             ¿No tienes una cuenta?
 
@@ -121,44 +147,12 @@ if (isset($_SESSION["usuario_id"])) {
                 Crear cuenta
             </a>
 
-        </p>
+        </div>
 
     </div>
 
 </div>
 
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const themeToggle = document.getElementById("themeToggle");
-
-    const savedTheme = localStorage.getItem("mova-theme");
-
-    if (savedTheme === "dark") {
-        document.body.classList.add("dark-mode");
-        themeToggle.textContent = "☀️";
-    }
-
-    themeToggle.addEventListener("click", function () {
-
-        document.body.classList.toggle("dark-mode");
-
-        const isDark =
-            document.body.classList.contains("dark-mode");
-
-        localStorage.setItem(
-            "mova-theme",
-            isDark ? "dark" : "light"
-        );
-
-        themeToggle.textContent =
-            isDark ? "☀️" : "🌙";
-    });
-
-});
-</script>
 </body>
 
 </html>
-

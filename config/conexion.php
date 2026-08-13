@@ -1,19 +1,26 @@
 <?php
 
-$host = "localhost";
-$usuario_db = "root";
-$password_db = "";
-$nombre_db = "mova";
+$servidor = "localhost";
+$usuario = "root";
+$password = "";
+$base_datos = "conekta";
 
-$conexion = new mysqli(
-    $host,
-    $usuario_db,
-    $password_db,
-    $nombre_db
+$conexion = mysqli_connect(
+    $servidor,
+    $usuario,
+    $password,
+    $base_datos
 );
 
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
+if (!$conexion) {
+
+    die(
+        "Error de conexión: "
+        . mysqli_connect_error()
+    );
 }
 
-$conexion->set_charset("utf8mb4");
+mysqli_set_charset(
+    $conexion,
+    "utf8mb4"
+);

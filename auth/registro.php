@@ -1,114 +1,123 @@
 <?php
-
 session_start();
 
-if (isset($_SESSION["usuario_id"])) {
+if (isset($_SESSION['usuario_id'])) {
     header("Location: ../usuario/inicio.php");
     exit;
 }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Crear cuenta | Conekta</title>
 
-    <title>Crear cuenta | MOVA</title>
-
-    <link
-        rel="stylesheet"
-        href="../assets/css/auth.css"
-    >
-
+    <link rel="stylesheet" href="../assets/css/auth.css">
 </head>
 
 <body>
 
 <div class="auth-container">
 
-    <div class="auth-box">
+    <div class="auth-card">
 
-        <div class="logo">
-            <span>M</span>OVA
+        <div class="auth-logo">
+            CONEKTA
         </div>
 
-        <p class="subtitle">
-            Crea tu cuenta y empieza a conectar.
+        <p class="auth-subtitle">
+            Crea tu cuenta y comienza a conectar.
         </p>
 
-        <form
-            action="validar_registro.php"
-            method="POST"
-        >
+        <?php if (isset($_GET['error'])): ?>
 
-            <input
-                type="text"
-                name="nombre"
-                placeholder="Nombre completo"
-                maxlength="100"
-                required
-            >
+            <div class="mensaje error">
+                <?php echo htmlspecialchars($_GET['error']); ?>
+            </div>
 
-            <input
-                type="text"
-                name="usuario"
-                placeholder="Nombre de usuario"
-                maxlength="50"
-                required
-            >
+        <?php endif; ?>
 
-            <input
-                type="email"
-                name="correo"
-                placeholder="Correo electrónico"
-                maxlength="150"
-                required
-            >
+        <form action="validar.php" method="POST">
 
-            <input
-                type="password"
-                name="password"
-                placeholder="Contraseña"
-                minlength="8"
-                required
-            >
+            <input type="hidden" name="accion" value="registro">
 
-            <input
-                type="password"
-                name="confirmar_password"
-                placeholder="Confirmar contraseña"
-                minlength="8"
-                required
-            >
+            <div class="campo">
+                <label>Nombre completo</label>
 
-            <button type="submit">
+                <input
+                    type="text"
+                    name="nombre"
+                    placeholder="Tu nombre"
+                    maxlength="100"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label>Nombre de usuario</label>
+
+                <input
+                    type="text"
+                    name="usuario"
+                    placeholder="@tuusuario"
+                    maxlength="50"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label>Correo electrónico</label>
+
+                <input
+                    type="email"
+                    name="correo"
+                    placeholder="correo@ejemplo.com"
+                    maxlength="150"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label>Contraseña</label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Mínimo 8 caracteres"
+                    minlength="8"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label>Confirmar contraseña</label>
+
+                <input
+                    type="password"
+                    name="confirmar_password"
+                    placeholder="Repite tu contraseña"
+                    minlength="8"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn-auth">
                 Crear cuenta
             </button>
 
         </form>
 
-        <p class="link-text">
-
+        <div class="auth-link">
             ¿Ya tienes una cuenta?
-
-            <a href="login.php">
-                Iniciar sesión
-            </a>
-
-        </p>
+            <a href="login.php">Iniciar sesión</a>
+        </div>
 
     </div>
 
 </div>
 
 </body>
-
 </html>
